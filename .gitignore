@@ -1,0 +1,11 @@
+node_modules
+dist
+.vercel
+.claude/
+
+# Patient scans and sample meshes stay local (medical data, never committed)
+*.stl
+*.STL
+*.ply
+*.obj
+public/samples/

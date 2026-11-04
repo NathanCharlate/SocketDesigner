@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SocketDesigner — transtibial socket CAD</title>
+  </head>
+  <body>
+    <header id="topbar">
+      <div class="brand">SocketDesigner <span>transtibial socket</span></div>
+      <nav id="steps"></nav>
+      <div class="actions" id="actions"></div>
+    </header>
+    <main>
+      <aside id="panel"></aside>
+      <section id="viewport">
+        <div id="view-toolbar"></div>
+        <div id="hint" hidden></div>
+        <div id="legend" hidden>
+          <div class="legend-bar"></div>
+          <div class="legend-labels"></div>
+        </div>
+        <div id="busy" hidden><div class="spinner"></div><span></span></div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
