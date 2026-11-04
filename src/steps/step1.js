@@ -116,10 +116,12 @@ export function createStep1(app) {
 
   const sampleRow = row(button(t('Load sample positive'), () => loadUrl(SAMPLE_URL, 'sample-positive.stl')));
   sampleRow.hidden = true;
-  // The sample scan is not published with the app; only show the button when it exists locally.
-  fetch(SAMPLE_URL, { method: 'HEAD' })
-    .then((r) => { sampleRow.hidden = !(r.ok && !(r.headers.get('content-type') || '').includes('text/html')); })
-    .catch(() => {});
+  // The sample scan is never published (patient data): only offer it in local development, when it exists.
+  if (import.meta.env.DEV) {
+    fetch(SAMPLE_URL, { method: 'HEAD' })
+      .then((r) => { sampleRow.hidden = !(r.ok && !(r.headers.get('content-type') || '').includes('text/html')); })
+      .catch(() => {});
+  }
 
   const orientCard = section(t('2 · Orientation'),
     row(button(t('Auto straighten'), () => { if (!app.raw) return; autoOrient(app.raw, { convertUp: false }); afterGeometryChange(); }),
